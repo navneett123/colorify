@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
     background-color: #eaeaea;
     transition: background-color 0.3s ease;
 }
@@ -16,8 +15,8 @@ body {
     align-items: center;
     font-size: 2.5rem;
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .divider {
     width: 2px;
     background-color: #ccc;
@@ -28,11 +27,13 @@ body {
     overflow-y: auto;
     background: #fff;
 }
+
 .palette h3 {
     text-align: center;
     font-weight: 500;
     color: #444;
 }
+
 .swatch-grid {
     display: flex;
     flex-wrap: wrap;
@@ -44,13 +45,10 @@ body {
     height: 30px;
     cursor: pointer;
     border: 1px solid #ddd;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
-}
-.swatch:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
+.swatch:hover {
+    transform: scale(1.1);
 /* Dark mode */
 body.dark {
     background-color: #1e1e1e;
@@ -58,6 +56,43 @@ body.dark {
 body.dark .main-ui {
     color: #fff;
 }
+body.dark .swatch {
+    border: 1px solid #fff;
+/* Toggle Button */
+#toggle-dark {
+    display: block;
+    margin: 0 auto 12px auto;
+    padding: 6px 12px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-dark:hover {
+    background-color: #222;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #1e1e1e;
+}
+
+body.dark .main-ui {
+    color: #fff;
+}
+
+body.dark .palette {
+    background-color: #2c2c2c;
+}
+
+body.dark .palette h3 {
+    color: #ccc;
+}
+
 body.dark .swatch {
     border: 1px solid #fff;
 }
