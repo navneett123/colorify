@@ -1,100 +1,104 @@
 body {
-    margin: 0;
-    background-color: #eaeaea;
-    transition: background-color 0.3s ease;
-}
-.container {
-    display: flex;
-    height: 100vh;
-}
-.main-ui {
-    flex: 3;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    color: #333;
+  margin: 0;
+  background-color: #eaeaea;
+  transition: background-color 0.3s ease;
+  font-family: sans-serif;
 }
 
-.divider {
-    width: 2px;
-    background-color: #ccc;
+.container {
+  display: flex;
+  height: 100vh;
 }
+
+/* LEFT: Main UI */
+.main-ui {
+  flex: 3;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+/* MIDDLE: Divider */
+.divider {
+  width: 2px;
+  background-color: #ccc;
+}
+
+/* RIGHT: Palette panel */
 .palette {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    background: #fff;
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 }
 
 .palette h3 {
-    text-align: center;
-    font-weight: 500;
-    color: #444;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
 }
 
+/* Buttons */
+#toggle-dark,
+#random-color {
+  margin: 5px 0;
+  padding: 6px 12px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 90%;
+}
+
+#toggle-dark:hover,
+#random-color:hover {
+  background-color: #222;
+}
+
+/* Swatch Grid */
 .swatch-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 15px;
 }
+
 .swatch {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    border: 1px solid #ddd;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
 }
-
 .swatch:hover {
-    transform: scale(1.1);
-/* Dark mode */
+  transform: scale(1.1);
+}
+
+/* DARK MODE */
 body.dark {
-    background-color: #1e1e1e;
+  background-color: #1e1e1e;
 }
 body.dark .main-ui {
-    color: #fff;
+  background-color: #2c2c2c;
+  color: #fff;
 }
-body.dark .swatch {
-    border: 1px solid #fff;
-/* Toggle Button */
-#toggle-dark {
-    display: block;
-    margin: 0 auto 12px auto;
-    padding: 6px 12px;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#toggle-dark:hover {
-    background-color: #222;
-}
-
-/* Dark Mode Styles */
-body.dark {
-    background-color: #1e1e1e;
-}
-
-body.dark .main-ui {
-    color: #fff;
-}
-
 body.dark .palette {
-    background-color: #2c2c2c;
+  background-color: #2c2c2c;
 }
-
 body.dark .palette h3 {
-    color: #ccc;
+  color: #ccc;
 }
-
 body.dark .swatch {
-    border: 1px solid #fff;
-}
-}
+  border: 1px solid #fff;
 }

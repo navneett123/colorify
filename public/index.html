@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Colorify</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colorify</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="main-ui" id="main">
-            <h1>Colorify</h1>
-        </div>
-        <div class="divider"></div>
-        <div class="palette">
-            <h3>COLOR PALETTE</h3>
-            <button id="toggle-dark">🌓 Toggle Dark Mode</button>
-            <div class="swatch-grid" id="palette"></div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <!-- Main display area -->
+    <section class="main-ui" id="main">
+      <h1>Colorify</h1>
+    </section>
+
+    <!-- Divider line -->
+    <div class="divider"></div>
+
+    <!-- Color palette area -->
+    <aside class="palette">
+      <h3>COLOR PALETTE</h3>
+      <button id="toggle-dark" aria-label="Toggle Dark Mode">🌓 Toggle Dark Mode</button>
+      <button id="random-color" aria-label="Random Hex Color">🎲 Random Color</button>
+      <div class="swatch-grid" id="palette"></div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
