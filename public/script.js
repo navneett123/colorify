@@ -1,5 +1,8 @@
 const palette = document.getElementById('palette');
 const main = document.getElementById('main');
+const toggleBtn = document.getElementById('toggle-dark');
+
+let isDark = false;
 
 function generateHexColors(count) {
     const colors = [];
@@ -16,12 +19,22 @@ function createPalette(colors) {
         swatch.className = 'swatch';
         swatch.style.backgroundColor = color;
         swatch.title = color;
+
         swatch.addEventListener('mouseover', () => {
             main.style.backgroundColor = color;
         });
+
         palette.appendChild(swatch);
     });
 }
 
+// Generate swatches
 const hexColors = generateHexColors(192);
 createPalette(hexColors);
+
+// Toggle dark mode
+toggleBtn.addEventListener('click', () => {
+    isDark = !isDark;
+    document.body.classList.toggle('dark', isDark);
+    main.style.color = isDark ? '#fff' : '#333';
+});

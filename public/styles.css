@@ -1,12 +1,12 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #eaeaea;
+    transition: background-color 0.3s ease;
 }
 .container {
     display: flex;
     height: 100vh;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .main-ui {
     flex: 3;
@@ -16,7 +16,7 @@ body {
     align-items: center;
     font-size: 2.5rem;
     color: #333;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .divider {
     width: 2px;
@@ -29,7 +29,6 @@ body {
     background: #fff;
 }
 .palette h3 {
-    margin: 0 0 10px 0;
     text-align: center;
     font-weight: 500;
     color: #444;
@@ -45,9 +44,20 @@ body {
     height: 30px;
     cursor: pointer;
     border: 1px solid #ddd;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
 .swatch:hover {
     transform: scale(1.1);
-    border: 2px solid #000;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Dark mode */
+body.dark {
+    background-color: #1e1e1e;
+}
+body.dark .main-ui {
+    color: #fff;
+}
+body.dark .swatch {
+    border: 1px solid #fff;
 }
