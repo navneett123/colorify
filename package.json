@@ -1,0 +1,12 @@
+{
+  "name": "colorify-node",
+  "version": "1.0.0",
+  "description": "Colorify app with Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

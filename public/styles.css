@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eaeaea;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.main-ui {
+    flex: 3;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+.divider {
+    width: 2px;
+    background-color: #ccc;
+}
+.palette {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #fff;
+}
+.palette h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-weight: 500;
+    color: #444;
+}
+.swatch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+.swatch {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease;
+}
+.swatch:hover {
+    transform: scale(1.1);
+    border: 2px solid #000;
+}
