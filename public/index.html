@@ -7,27 +7,22 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container" id="app-container">
+  <div class="container">
     <!-- Main UI -->
     <section class="main-ui" id="main">
       <h1>Colorify</h1>
     </section>
 
+    <!-- Divider -->
     <div class="divider"></div>
 
-    <!-- Controls and Swatches -->
+    <!-- Color Palette Section -->
     <aside class="palette">
       <h3>COLOR PALETTE</h3>
-      <button id="toggle-dark">🌓 Toggle Dark Mode</button>
-      <button id="random-color">🎲 Random Color</button>
+      <button id="toggle-dark" aria-label="Toggle Dark Mode">🌓 Toggle Dark Mode</button>
+      <button id="random-color" aria-label="Random Hex Color">🎲 Random Color</button>
       <div class="swatch-grid" id="palette"></div>
     </aside>
-  </div>
-
-  <!-- Full Page Preview (Hidden Initially) -->
-  <div class="full-preview hidden" id="full-preview">
-    <div class="preview-color" id="preview-color"></div>
-    <button id="close-preview">← Back to Palette</button>
   </div>
 
   <script src="script.js"></script>
