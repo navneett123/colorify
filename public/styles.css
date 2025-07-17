@@ -1,8 +1,8 @@
 body {
   margin: 0;
   background-color: #eaeaea;
-  transition: background-color 0.3s ease;
   font-family: sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -10,7 +10,7 @@ body {
   height: 100vh;
 }
 
-/* LEFT: Main UI */
+/* MAIN UI */
 .main-ui {
   flex: 3;
   background-color: #f5f5f5;
@@ -22,12 +22,13 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Divider */
 .divider {
   width: 2px;
   background-color: #ccc;
 }
 
-/* RIGHT: Palette panel */
+/* PALETTE AREA */
 .palette {
   flex: 1;
   padding: 20px;
@@ -44,6 +45,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* Buttons */
 #toggle-dark,
 #random-color {
   margin: 5px 0;
@@ -63,7 +65,7 @@ body {
   background-color: #222;
 }
 
-/* Swatches */
+/* SWATCH GRID */
 .swatch-grid {
   display: flex;
   flex-wrap: wrap;
@@ -77,10 +79,10 @@ body {
   height: 30px;
   cursor: pointer;
   border: 1px solid #ddd;
-  position: relative;
   transition: transform 0.2s;
   position: relative;
 }
+
 .swatch:hover {
   transform: scale(1.1);
 }
@@ -88,41 +90,23 @@ body {
 /* Tooltip */
 .tooltip {
   position: absolute;
-  bottom: 110%;
+  bottom: 120%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #222;
+  background-color: #444;
   color: #fff;
-  padding: 2px 6px;
   font-size: 0.7rem;
-  border-radius: 3px;
-  opacity: 0;
+  padding: 4px 8px;
+  border-radius: 4px;
   white-space: nowrap;
+  opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
-.swatch.show-tooltip .tooltip {
+.tooltip.show {
   opacity: 1;
-}
-
-/* Copy Tooltip */
-.tooltip {
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
-  color: #fff;
-  padding: 4px 6px;
-  font-size: 0.7rem;
-  border-radius: 3px;
-  white-space: nowrap;
-  display: none;
-}
-
-.swatch.copied .tooltip {
-  display: block;
 }
 
 /* DARK MODE */
@@ -143,43 +127,6 @@ body.dark .swatch {
   border: 1px solid #fff;
 }
 body.dark .tooltip {
-  background: #eee;
-  color: #222;
-}
-
-/* ============================= */
-/* FULL PAGE PREVIEW STYLES     */
-/* ============================= */
-.full-preview {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  background-color: #000;
-  transition: all 0.3s ease;
-}
-
-.full-preview.hidden {
-  display: none;
-}
-
-.preview-color {
-  flex: 1;
-  transition: background-color 0.3s ease;
-}
-
-#close-preview {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-top: 1px solid #ccc;
-}
-
-body.dark #close-preview {
-  background-color: #333;
-  color: #eee;
+  background-color: #eee;
+  color: #111;
 }
