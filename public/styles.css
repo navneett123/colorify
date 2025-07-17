@@ -22,7 +22,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Divider */
 .divider {
   width: 2px;
   background-color: #ccc;
@@ -80,6 +79,7 @@ body {
   border: 1px solid #ddd;
   position: relative;
   transition: transform 0.2s;
+  position: relative;
 }
 .swatch:hover {
   transform: scale(1.1);
@@ -106,6 +106,25 @@ body {
   opacity: 1;
 }
 
+/* Copy Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  display: none;
+}
+
+.swatch.copied .tooltip {
+  display: block;
+}
+
 /* DARK MODE */
 body.dark {
   background-color: #1e1e1e;
@@ -122,4 +141,45 @@ body.dark .palette h3 {
 }
 body.dark .swatch {
   border: 1px solid #fff;
+}
+body.dark .tooltip {
+  background: #eee;
+  color: #222;
+}
+
+/* ============================= */
+/* FULL PAGE PREVIEW STYLES     */
+/* ============================= */
+.full-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  transition: all 0.3s ease;
+}
+
+.full-preview.hidden {
+  display: none;
+}
+
+.preview-color {
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+#close-preview {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+}
+
+body.dark #close-preview {
+  background-color: #333;
+  color: #eee;
 }
