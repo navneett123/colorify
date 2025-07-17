@@ -22,7 +22,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* MIDDLE: Divider */
+/* Divider */
 .divider {
   width: 2px;
   background-color: #ccc;
@@ -45,7 +45,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Buttons */
 #toggle-dark,
 #random-color {
   margin: 5px 0;
@@ -65,7 +64,7 @@ body {
   background-color: #222;
 }
 
-/* Swatch Grid */
+/* Swatches */
 .swatch-grid {
   display: flex;
   flex-wrap: wrap;
@@ -79,10 +78,32 @@ body {
   height: 30px;
   cursor: pointer;
   border: 1px solid #ddd;
+  position: relative;
   transition: transform 0.2s;
 }
 .swatch:hover {
   transform: scale(1.1);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.swatch.show-tooltip .tooltip {
+  opacity: 1;
 }
 
 /* DARK MODE */
