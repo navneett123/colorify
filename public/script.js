@@ -2,6 +2,7 @@ const palette = document.getElementById('palette');
 const main = document.getElementById('main');
 const toggleBtn = document.getElementById('toggle-dark');
 const randomBtn = document.getElementById('random-color');
+const brightnessSlider = document.getElementById('brightness-slider');
 
 let isDark = false;
 
@@ -22,7 +23,7 @@ function createTooltip(text) {
 }
 
 function createPalette(colors) {
-  palette.innerHTML = ''; // clear old swatches
+  palette.innerHTML = '';
   colors.forEach(color => {
     const swatch = document.createElement('div');
     swatch.className = 'swatch';
@@ -47,7 +48,7 @@ function createPalette(colors) {
   });
 }
 
-// Initialize swatches
+// Initialize palette
 createPalette(generateHexColors(100));
 
 // Toggle Dark Mode
@@ -56,8 +57,14 @@ toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark', isDark);
 });
 
-// Set a random background color
+// Random Color
 randomBtn.addEventListener('click', () => {
   const randomColor = generateHexColors(1)[0];
   main.style.backgroundColor = randomColor;
+});
+
+// Brightness Adjustment
+brightnessSlider.addEventListener('input', () => {
+  const value = brightnessSlider.value;
+  main.style.filter = `brightness(${value}%)`;
 });

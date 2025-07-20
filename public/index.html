@@ -19,8 +19,13 @@
     <!-- Color Palette Section -->
     <aside class="palette">
       <h3>COLOR PALETTE</h3>
-      <button id="toggle-dark" aria-label="Toggle Dark Mode">🌓 Toggle Dark Mode</button>
-      <button id="random-color" aria-label="Random Hex Color">🎲 Random Color</button>
+      <button id="toggle-dark">🌓 Toggle Dark Mode</button>
+      <button id="random-color">🎲 Random Color</button>
+
+      <!-- Brightness Slider -->
+      <label for="brightness-slider">Brightness</label>
+      <input type="range" id="brightness-slider" min="50" max="150" value="100" />
+
       <div class="swatch-grid" id="palette"></div>
     </aside>
   </div>
