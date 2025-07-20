@@ -2,9 +2,9 @@ const palette = document.getElementById('palette');
 const main = document.getElementById('main');
 const toggleBtn = document.getElementById('toggle-dark');
 const randomBtn = document.getElementById('random-color');
-const brightnessSlider = document.getElementById('brightness-slider');
 
 let isDark = false;
+let currentColor = '#ffffff';
 
 function generateHexColors(count) {
   const colors = [];
@@ -22,8 +22,24 @@ function createTooltip(text) {
   return tooltip;
 }
 
+function applyBrightness() {
+  const brightnessValue = brightnessSlider.value;
+  main.style.filter = `brightness(${brightnessValue}%)`;
+}
+
+function addToFavorites(color) {
+  const fav = document.createElement('div');
+  fav.className = 'favorite-swatch';
+  fav.style.backgroundColor = color;
+  fav.title = color;
+  fav.onclick = () => {
+    currentColor = color;
+    main.style.backgroundColor = color;
+  };
+  favoritesList.appendChild(fav);
+}
+
 function createPalette(colors) {
-  palette.innerHTML = '';
   colors.forEach(color => {
     const swatch = document.createElement('div');
     swatch.className = 'swatch';
@@ -34,6 +50,7 @@ function createPalette(colors) {
     swatch.appendChild(tooltip);
 
     swatch.addEventListener('mouseover', () => {
+      currentColor = color;
       main.style.backgroundColor = color;
     });
 
@@ -41,6 +58,7 @@ function createPalette(colors) {
       navigator.clipboard.writeText(color).then(() => {
         tooltip.classList.add('show');
         setTimeout(() => tooltip.classList.remove('show'), 1000);
+        addToFavorites(color);
       });
     });
 
@@ -48,8 +66,8 @@ function createPalette(colors) {
   });
 }
 
-// Initialize palette
 createPalette(generateHexColors(100));
+applyBrightness();
 
 // Toggle Dark Mode
 toggleBtn.addEventListener('click', () => {
@@ -57,10 +75,11 @@ toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark', isDark);
 });
 
-// Random Color
 randomBtn.addEventListener('click', () => {
   const randomColor = generateHexColors(1)[0];
+  currentColor = randomColor;
   main.style.backgroundColor = randomColor;
+  addToFavorites(randomColor);
 });
 
 // Brightness Adjustment
@@ -68,3 +87,5 @@ brightnessSlider.addEventListener('input', () => {
   const value = brightnessSlider.value;
   main.style.filter = `brightness(${value}%)`;
 });
+// Brightness Slider
+brightnessSlider.addEventListener('input', applyBrightness);
