@@ -2,8 +2,6 @@ const palette = document.getElementById('palette');
 const main = document.getElementById('main');
 const toggleBtn = document.getElementById('toggle-dark');
 const randomBtn = document.getElementById('random-color');
-const brightnessSlider = document.getElementById('brightness');
-const favoritesList = document.getElementById('favorites-list');
 
 let isDark = false;
 let currentColor = '#ffffff';
@@ -42,7 +40,6 @@ function addToFavorites(color) {
 }
 
 function createPalette(colors) {
-  palette.innerHTML = '';
   colors.forEach(color => {
     const swatch = document.createElement('div');
     swatch.className = 'swatch';
@@ -69,7 +66,6 @@ function createPalette(colors) {
   });
 }
 
-// Initialize
 createPalette(generateHexColors(100));
 applyBrightness();
 
@@ -79,7 +75,6 @@ toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark', isDark);
 });
 
-// Random Color Button
 randomBtn.addEventListener('click', () => {
   const randomColor = generateHexColors(1)[0];
   currentColor = randomColor;
@@ -87,5 +82,10 @@ randomBtn.addEventListener('click', () => {
   addToFavorites(randomColor);
 });
 
+// Brightness Adjustment
+brightnessSlider.addEventListener('input', () => {
+  const value = brightnessSlider.value;
+  main.style.filter = `brightness(${value}%)`;
+});
 // Brightness Slider
 brightnessSlider.addEventListener('input', applyBrightness);
