@@ -11,6 +11,14 @@
     <!-- Main UI -->
     <section class="main-ui" id="main">
       <h1>Colorify</h1>
+      <div class="sliders">
+        <label for="brightness">Brightness</label>
+        <input type="range" id="brightness" min="50" max="150" value="100" />
+      </div>
+      <div class="favorites">
+        <h4>Favorites</h4>
+        <div id="favorites-list"></div>
+      </div>
     </section>
 
     <!-- Divider -->
@@ -19,8 +27,8 @@
     <!-- Color Palette Section -->
     <aside class="palette">
       <h3>COLOR PALETTE</h3>
-      <button id="toggle-dark" aria-label="Toggle Dark Mode">🌓 Toggle Dark Mode</button>
-      <button id="random-color" aria-label="Random Hex Color">🎲 Random Color</button>
+      <button id="toggle-dark">🌓 Toggle Dark Mode</button>
+      <button id="random-color">🎲 Random Color</button>
       <div class="swatch-grid" id="palette"></div>
     </aside>
   </div>
